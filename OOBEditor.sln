@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOBEditor", "OOBEditor\OOBEditor.csproj", "{18E397AB-5999-4645-9742-E188529AC775}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18E397AB-5999-4645-9742-E188529AC775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18E397AB-5999-4645-9742-E188529AC775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18E397AB-5999-4645-9742-E188529AC775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18E397AB-5999-4645-9742-E188529AC775}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
