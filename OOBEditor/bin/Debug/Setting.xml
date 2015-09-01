@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="GB2312"?>
+<root>
+  <GamePath>D:\Games\Hearts of Iron III\tfh</GamePath>
+    <DefaultModelYear>
+    <Year>1918</Year>
+    <Year>1936</Year>
+    <Year>1938</Year>
+    <Year>1940</Year>
+    <Year>1942</Year>
+    <Year>1944</Year>
+    <Year>1946</Year>
+    <Year>1948</Year>
+    <Year>1950</Year>
+    <Year>1952</Year>
+    <Year>1954</Year>
+    <Year>1956</Year>
+  </DefaultModelYear>
+</root>

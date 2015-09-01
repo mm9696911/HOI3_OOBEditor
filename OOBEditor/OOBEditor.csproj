@@ -187,6 +187,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="bin\Debug\OOBEditor.exe.config" />
+    <None Include="bin\Debug\OOBEditor.vshost.exe.config" />
+    <None Include="bin\Debug\OOBEditor.vshost.exe.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -198,6 +201,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\DevIL.dll" />
+    <Content Include="bin\Debug\DevIL.NET.dll" />
+    <Content Include="bin\Debug\DevIL.NET2.dll" />
+    <Content Include="bin\Debug\ILU.dll" />
+    <Content Include="bin\Debug\LumenWorks.Framework.IO.dll" />
+    <Content Include="bin\Debug\OOBEditor.exe" />
+    <Content Include="bin\Debug\OOBEditor.pdb" />
+    <Content Include="bin\Debug\OOBEditor.vshost.exe" />
+    <Content Include="bin\Debug\Setting.xml" />
     <Content Include="OOBEditor.ico" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
@@ -217,6 +229,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
