@@ -941,24 +941,18 @@ namespace OOBEditor.Services
                         }
                     }
                     List<string> modelPathList = ReturnModelPath(string.Concat(pathInfo.unitPath, "models\\", countryCode, " - ", unitModelFileType, ".txt"));
-                    string modelModFilePath = modelPathList[0];
-                    string modelFileTFHPath = modelPathList[1];
-                    string modelOraginalFilePath = modelPathList[2];
+                    string modelFileTFHPath = modelPathList[0];
+                    string modelOraginalFilePath = modelPathList[1];
 
 
-                    string modelModFileStr = GetFileStream(modelModFilePath);
-                    List<string> modelNumList = GetValueListByAttributeName(modelModFileStr, type);
-                    if (!string.IsNullOrEmpty(modelFileTFHPath) && modelNumList == null)
+                    string modelTFHFileStr = GetFileStream(modelFileTFHPath);
+                    List<string> modelNumList = GetValueListByAttributeName(modelTFHFileStr, type);
+                    if (!string.IsNullOrEmpty(modelOraginalFilePath) && modelNumList == null)
                     {
-                        string modelTFHFileStr = GetFileStream(modelFileTFHPath);
-                        modelNumList = GetValueListByAttributeName(modelTFHFileStr, type);
-                        if (!string.IsNullOrEmpty(modelOraginalFilePath) && modelNumList == null)
+                        if (File.Exists(modelOraginalFilePath))
                         {
-                            if (File.Exists(modelOraginalFilePath))
-                            {
-                                string modelOraginalFileStr = GetFileStream(modelOraginalFilePath);
-                                modelNumList = GetValueListByAttributeName(modelOraginalFileStr, type);
-                            }
+                            string modelOraginalFileStr = GetFileStream(modelOraginalFilePath);
+                            modelNumList = GetValueListByAttributeName(modelOraginalFileStr, type);
                         }
                     }
                     List<UnitModelInfo> list = new List<UnitModelInfo>();
@@ -1088,7 +1082,7 @@ namespace OOBEditor.Services
         }
 
         /// <summary>
-        /// 传入文件路径判断是否存在，如果不存在判断移除MOD名字之后判断移除TFH文件夹名字
+        /// 传入文件路径判断是否存在，如果不存在判断移除TFH文件夹名字
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -1097,13 +1091,6 @@ namespace OOBEditor.Services
             string returnPath = path;
             if (!File.Exists(path))
             {
-                if (!string.IsNullOrEmpty(pathInfo.modName))
-                {
-                    if (path.ToLower().IndexOf(pathInfo.modName) > -1)
-                    {
-                        returnPath = path.Remove(path.ToLower().IndexOf(pathInfo.modName), pathInfo.modName.Length + 1).Remove(path.ToLower().IndexOf(pathInfo.modName), 4);
-                    }
-                }
                 if (!File.Exists(returnPath) && path.ToLower().IndexOf("tfh") > -1)
                 {
                     returnPath = path.Remove(path.ToLower().IndexOf("tfh"), 4);
@@ -1116,28 +1103,8 @@ namespace OOBEditor.Services
         private List<string> ReturnModelPath(string path)
         {
             List<string> returnList = new List<string>();
-            string modelModFilePath = "";   //mod路径
             string modelTFHFilePath = "";   //TFH路径
             string modelOraginalFilePath = "";//
-            //判断路径是否是Mod
-            if (!string.IsNullOrEmpty(pathInfo.modName))
-            {
-                //判断路径是否含有Mod名字
-                if (path.ToLower().IndexOf(pathInfo.modName) > -1)
-                {
-                    modelModFilePath = path;
-                    //在路径里移除Mod和Mod名字
-                    modelTFHFilePath = modelModFilePath.Remove(modelModFilePath.ToLower().IndexOf(pathInfo.modName), pathInfo.modName.Length + 1).Remove(modelModFilePath.ToLower().IndexOf(pathInfo.modName), 4);
-                }
-                else
-                {
-                    modelTFHFilePath = path;
-                }
-            }
-            else
-            {
-                modelTFHFilePath = path;
-            }
             //判断是否含有TFH
             if (modelTFHFilePath.IndexOf("tfh") > -1)
             {
@@ -1145,7 +1112,6 @@ namespace OOBEditor.Services
                 modelOraginalFilePath = modelTFHFilePath.Remove(modelTFHFilePath.IndexOf("tfh"), 4);
             }
 
-            returnList.Add(modelModFilePath);
             returnList.Add(modelTFHFilePath);
             returnList.Add(modelOraginalFilePath);
             return returnList;

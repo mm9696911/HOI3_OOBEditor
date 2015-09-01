@@ -36,10 +36,6 @@ namespace OOBEditor.Helper
         private PathInfo checkpaths(string gamePath, out string errorMessage)
         {
             errorMessage = "";
-            if (gamePath.ToLower().IndexOf("mod") > -1)
-            {
-                pathInfo.modName = gamePath.Substring(gamePath.ToLower().IndexOf("mod") + 4).ToLower();
-            }
             if (Directory.Exists(string.Concat(gamePath, "\\history\\units")))
             {
                 pathInfo.OOBPath = string.Concat(gamePath, "\\history\\units\\");

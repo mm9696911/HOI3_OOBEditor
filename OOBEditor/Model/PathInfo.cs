@@ -7,10 +7,6 @@ namespace OOBEditor.Model
     public class PathInfo
     {
         /// <summary>
-        /// Mod名字
-        /// </summary>
-        public string modName { get; set; }
-        /// <summary>
         /// 将领文件路径
         /// </summary>
         public string leaderPath { get; set; }

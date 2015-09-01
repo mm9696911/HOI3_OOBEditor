@@ -891,7 +891,7 @@ namespace OOBEditor
         }
 
         /// <summary>
-        /// 传入文件路径判断是否存在，如果不存在判断移除MOD名字之后判断移除TFH文件夹名字
+        /// 传入文件路径判断是否存在，如果不存在判断移除TFH文件夹名字
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -900,13 +900,6 @@ namespace OOBEditor
             string returnPath = path;
             if (!File.Exists(path))
             {
-                if (!string.IsNullOrEmpty(pathInfo.modName))
-                {
-                    if (path.ToLower().IndexOf(pathInfo.modName) > -1)
-                    {
-                        returnPath = path.Remove(path.ToLower().IndexOf(pathInfo.modName), pathInfo.modName.Length + 1).Remove(path.ToLower().IndexOf(pathInfo.modName), 4);
-                    }
-                }
                 if (!File.Exists(returnPath) && path.ToLower().IndexOf("tfh") > -1)
                 {
                     returnPath = path.Remove(path.ToLower().IndexOf("tfh"), 4);
